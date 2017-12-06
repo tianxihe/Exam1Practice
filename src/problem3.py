@@ -148,6 +148,7 @@ def problem3a(window, point, n):
         :type point:  rg.Point
         :type n:      int
     """
+    ansser=0
     for k in range(n):
         end_point=rg.Point(point.x+(20*k),point.y+50+(10
         *k))
@@ -161,11 +162,13 @@ def problem3a(window, point, n):
         line.attach_to(window)
         window.render()
 
+
         if n<7:
-           ans=n+((n-1)*n)
+           ansser=n+((n-1)*n)
         else:
-           ans=49+(n-7)*13
-    return ans
+           ansser=49+(n-7)*13
+
+    return ansser
 
 
 
