@@ -105,6 +105,19 @@ def run_test_problem3a():
 
     window3.close_on_mouse_click()
 
+    # Window4:
+    title:'Problem 3a. Test 5: Start at (35,35), 14 lines'
+    window4=rg.RoseWindow(450,300,title)
+
+    # Test5 (it is on window 4):
+    point=rg.Point(35,35)
+    expected=140
+    answer=problem3a(window4,point,14)
+    print()
+    print('Test 5 expected:',expected)
+    print('        actual:',answer)
+    window4.close_on_mouse_click()
+
     # ------------------------------------------------------------------
     # TO DO: 2 (continued).
     # Below this comment (or integrated with one of the above tests,
@@ -144,6 +157,28 @@ def problem3a(window, point, n):
         :type point:  rg.Point
         :type n:      int
     """
+    for k in range(n):
+        end_point=rg.Point(point.x+(20*k),point.y+50+(10
+        *k))
+        start_point=rg.Point(point.x+(20*k),point.y+(10
+        *k))
+        line=rg.Line(start_point,end_point)
+        if line.thickness<13:
+            line.thickness=line.thickness+2*(k+1)
+        if line.thickness>13:
+            line.thickness=13
+        line.attach_to(window)
+        window.render()
+
+        if n<7:
+           ans=n+((n-1)*n)
+        else:
+           ans=49+(n-7)*13
+    return (ans)
+
+
+
+
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
