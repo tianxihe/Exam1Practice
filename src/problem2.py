@@ -125,7 +125,7 @@ def problem2a(circle, rectangle, window):
     circle.fill_color=rectangle.outline_color
     window.render()
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
