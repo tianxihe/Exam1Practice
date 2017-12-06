@@ -30,7 +30,7 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_problem2a()
+    #run_test_problem2a()
     run_test_problem2b()
 
 
@@ -196,30 +196,25 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     rect.attach_to(win)
-    rect.
-    for k in range(n):
-        if rect.corner_1.x>rect.corner_2.x:
-            corner1x=rect.corner_1.x+delta
-        else:
-            corner1x=rect.corner_2.x+delta
-        if rect.corner_1.y>rect.corner_2.y:
-            corner1y=rect.corner_1.y+delta
-        else:
-            corner1y=rect.corner_1.y-delta
+    corner1 = rg.Point(0, 0)
+    corner2 = rg.Point(0, 0)
+    for k in range(n-1):
+                    if rect.corner_1.x>rect.corner_2.x:
+                       corner1.x=rect.corner_1.x+delta*(k+1)
+                       corner2.x=rect.corner_2.x-delta*(k+1)
+                    else:
+                       corner1.x=rect.corner_2.x+delta*(k+1)
+                       corner2.x=rect.corner_1.x-delta*(k+1)
+                    if rect.corner_1.y>rect.corner_2.y:
+                       corner1.y=rect.corner_1.y+delta*(k+1)
+                       corner2.y=rect.corner_2.y-delta*(k+1)
+                    else:
+                       corner1.y=rect.corner_2.y+delta*(k+1)
+                       corner2.y=rect.corner_1.y-delta*(k+1)
 
-
-
-        if rect.corner_1.x>rect.corner_2.x:
-            corner2x=rect.corner_1.x+delta
-        else:
-            corner2x=rect.corner_2.x+delta
-        if rect.corner_1.y>rect.corner_2.y:
-            corner2y=rect.corner_1.y+delta
-        else:
-            corner2y=rect.corner_1.y-delta
-
-
-    win.render()
+                    gg= rg.Rectangle(corner1,corner2)
+                    gg.attach_to(win)
+                    win.render()
 
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
