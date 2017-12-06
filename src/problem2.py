@@ -101,8 +101,10 @@ def problem2a(circle, rectangle, window):
       :type rectangle: rg.Rectangle
       :type window:    rg.RoseWindow
     """
+
     circle.attach_to(window)
     rectangle.attach_to(window)
+    window.render()
     window.continue_on_mouse_click()
     if rectangle.corner_2.x >rectangle.corner_1.x:
         x=rectangle.corner_2.x
@@ -116,8 +118,11 @@ def problem2a(circle, rectangle, window):
     end=rg.Point(x-abs(rectangle.corner_1.x-rectangle.corner_2.x),
                  y+abs(rectangle.corner_1.y-rectangle.corner_2.y))
     line=rg.Line(start,end)
-    
+    ##line.arrow=
     line.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+    circle.fill_color=rectangle.outline_color
     window.render()
     # ------------------------------------------------------------------
     # TODO: 2. Implement and test this function.
@@ -190,6 +195,32 @@ def problem2b(rect, n, delta, win):
       :type delta:  int
       :type win:    rg.RoseWindow
     """
+    rect.attach_to(win)
+    rect.
+    for k in range(n):
+        if rect.corner_1.x>rect.corner_2.x:
+            corner1x=rect.corner_1.x+delta
+        else:
+            corner1x=rect.corner_2.x+delta
+        if rect.corner_1.y>rect.corner_2.y:
+            corner1y=rect.corner_1.y+delta
+        else:
+            corner1y=rect.corner_1.y-delta
+
+
+
+        if rect.corner_1.x>rect.corner_2.x:
+            corner2x=rect.corner_1.x+delta
+        else:
+            corner2x=rect.corner_2.x+delta
+        if rect.corner_1.y>rect.corner_2.y:
+            corner2y=rect.corner_1.y+delta
+        else:
+            corner2y=rect.corner_1.y-delta
+
+
+    win.render()
+
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).
