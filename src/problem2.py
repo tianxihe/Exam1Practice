@@ -118,7 +118,7 @@ def problem2a(circle, rectangle, window):
     end=rg.Point(x-abs(rectangle.corner_1.x-rectangle.corner_2.x),
                  y+abs(rectangle.corner_1.y-rectangle.corner_2.y))
     line=rg.Line(start,end)
-    ##line.arrow=
+    line.arrow='last'
     line.attach_to(window)
     window.render()
     window.continue_on_mouse_click()
