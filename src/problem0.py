@@ -1,5 +1,4 @@
-"""
-PRACTICE Test 1, problem 0.
+"""PRACTICE Test 1, problem 0.
 
 These problems illustrate concepts that previous problems have not emphasized:
   -- determining whether a number is odd or even (Problem 0a)
@@ -8,8 +7,8 @@ These problems illustrate concepts that previous problems have not emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Tianxi He.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -139,13 +138,22 @@ def problem0a(n):
     Side effects:   None.
     Examples:
       -- If the given integer is 83135, this function returns False,
-           since (8 + 3 + 1 + 3 + 5) is 20, which is NOT odd.
+       since (8 + 3 + 1 + 3 + 5) is 20, which is NOT odd.
       -- If the given integer is 306, this function returns True,
            since (3 + 0 + 6) is 9, which IS odd.
       -- If the given integer is 246, this function returns False,
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
-    # ------------------------------------------------------------------
+
+    sum=sum_of_digits(n)
+    if sum%2 ==1:
+      return True
+    else:
+      return False
+
+
+
+    #-------------------------------------------------------------------------------
     # TODO: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
@@ -218,7 +226,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -227,6 +235,12 @@ def problem0b(n):
     #    **  use (call) the   is_prime   function that is DEFINED ABOVE.
     ####################################################################
     # ------------------------------------------------------------------
+    count=0
+    for k in range(n-1):
+     if is_prime(k+2)==True:
+        count=count+1
+    return count
+
 
 
 def run_test_problem0c():
@@ -266,7 +280,7 @@ def problem0c(circle, n, window):
     """
     See   problem0c_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
-    
+
     What comes in:
       -- An rg.Circle.
       -- A positive integer n.
@@ -286,7 +300,7 @@ def problem0c(circle, n, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -294,9 +308,22 @@ def problem0c(circle, n, window):
     #   renders with a half-second pause after rendering.
     ####################################################################
     # ------------------------------------------------------------------
+    circle.attach_to(window)
+    window.render(0.5)
+    radius=circle.radius
+    x=circle.center.x
+    y=circle.center.y
+    for k in range(n):
+        center=rg.Point(x+(k+1)*2*radius, y)
+        circles=rg.Circle(center,radius)
+        circles.attach_to(window)
+        window.render(0.5)
+
+
 
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
 main()
+
